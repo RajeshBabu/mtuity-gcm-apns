@@ -1,0 +1,31 @@
+<html>
+  <body>
+
+   <h1 align='center'>Sending Notifications </h1>
+   <form action="/api/gcm/send" method = "post">
+    <table align="center">
+      <tbody>
+      <tr>
+      	<td style="font-weight:bold;">API Key:</td>
+        <td id="apiKeyFieldContainer"><input type="text" class="gwt-TextBox" style="width: 500px;"></td>
+      </tr>
+      <tr>
+      	<td style="font-weight:bold;">Reg. Id:</td>
+        <td id="regIdFieldContainer"><input type="text" class="gwt-TextBox" style="width: 500px;"></td>
+      </tr>
+      <tr>
+      	<td style="font-weight:bold;">Message:</td>
+        <td id="msgFieldContainer"><textarea class="gwt-TextArea" style="width: 500px; height: 250px;"></textarea></td>
+      </tr>
+      <tr>
+      	<td></td>
+        <td id="sendButtonContainer"><button type="button" class="gwt-Button sendButton">Send</button></td>
+      </tr>     
+      <tr>
+		<td></td>
+        <td style="color:red;" id="errorLabelContainer"><div class="gwt-Label"></div></td>
+      </tr>
+    </tbody></table>
+  </body>
+</form>
+</html>

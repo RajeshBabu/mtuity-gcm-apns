@@ -1,0 +1,11 @@
+include push.html
+block content
+table
+  tr(style='color:red')
+    td(style='text-align:center;width: '+(85)+'%')
+    td= title
+
+
+  
+
+

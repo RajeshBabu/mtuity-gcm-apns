@@ -1,0 +1,88 @@
+<html>
+<script type="text/javascript">  
+function MySelection(){
+ if (document.forms[0].os[0].checked == true ){  
+       document.getElementById("androidtable").style.display="table";
+       document.getElementById("iOStable").style.display="none";
+       document.getElementById("sub").style.display="none";
+ }else if (document.forms[0].os[1].checked == true ){
+       document.getElementById("sandbox").checked=true;
+       document.getElementById("androidtable").style.display="none";
+       document.getElementById("iOStable").style.display="table";
+       document.getElementById("sub").style.display="table";
+ }
+ window.onbeforeunload = function(e) {
+       document.getElementById("android").checked=true;
+       document.getElementById("sandbox").checked=true;
+       document.getElementById("iOStable").style.display="none";
+       document.getElementById("sub").style.display="none";
+       document.getElementById("androidtable").style.display="table";
+
+ };
+}  
+</script>
+
+  <body>
+    <form action="http://localhost:3000/push/send" enctype="multipart/form-data" method="post">
+   <h1 align='center'>Push Notifications </h1>
+   <fieldset name="fieldset">
+      <legend>What is Your OS type?</legend>
+          <input type="radio" name="os" id="android" value="android" checked="checked" onclick = "MySelection()" />Android<br />
+          <input type="radio" name="os" value="ios" onclick = "MySelection()" />iOS<br />  
+    <div id="sub"style="display:none">
+          <input type="radio" style="margin-left: 1cm;" name="env" id="sandbox" value="sandbox" checked="checked"/>Sandbox<br/>
+          <input type="radio" style="margin-left: 1cm;" name="env" id="production" value="production"/>Production<br/>
+   </div>
+  </fieldset>
+
+    <table align="center" id="androidtable">
+      <tbody>
+      <tr>
+      	<td style="font-weight:bold;">API Key:</td>
+        <td id="apiKeyFieldContainer"><input type="text" name="apikey" style="width: 500px;"></td>
+      </tr>
+      <tr>
+      	<td style="font-weight:bold;">Reg. Id:</td>
+        <td id="regIdFieldContainer"><input type="text" name="regid" style="width: 500px;"></td>
+      </tr>
+     
+      <tr>
+      	<td style="font-weight:bold;">Message:</td>
+        <td id="msgFieldContainer"><textarea name="messages" style="width: 500px; height: 250px;"></textarea></td>
+      </tr>
+      <tr>
+      	<td></td>
+        <td id="sendButtonContainer"><button type="submit">Send</button></td> <td style="color:red;" id="errorLabelContainer"><div><title></title></div></td>
+      </tr>     
+   
+    </tbody></table>
+
+
+<table align="center" id="iOStable" style="display:none">
+      <tbody>
+      <tr>
+      	<td style="font-weight:bold;">Browse P12 File :</td>
+        <td id="apiKeyFieldContainer"><input type="file" name="iosapikey" style="width: 500px;"></td>
+      </tr>
+      <tr>
+      	<td style="font-weight:bold;">Device Id :</td>
+        <td id="regIdFieldContainer"><input type="text" name="deviceid" style="width: 500px;"></td>
+      </tr>
+      <tr>
+      	<td style="font-weight:bold;">Password:</td>
+        <td id="regIdFieldContainer"><input type="text" name="password" style="width: 500px;"></td>
+      </tr>
+      <tr>
+      	<td style="font-weight:bold;">Alert:</td>
+        <td id="msgFieldContainer"><textarea name="alert" style="width: 500px; height: 250px;"></textarea></td>
+      </tr>
+      <tr>
+      	<td></td>
+        <td id="sendButtonContainer"><button type="submit">Send</button></td>
+      </tr>     
+    
+    </tbody></table>
+</form>
+  </body>
+
+</html>
